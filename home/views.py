@@ -2,9 +2,11 @@
 from django.shortcuts import render, redirect
 
 from home.forms import ContactUs
+from zakaz.models import Zakaz
 
 
 def home_page(request):
+
     if request.method == "POST":
         form = ContactUs(request.POST)
         if form.is_valid():

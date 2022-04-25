@@ -6,4 +6,11 @@ from zakaz.models import Zakaz
 
 def zakaz(request):
     product = Zakaz.objects.all()
-    return render(request, 'zakaz.html', {"product":product})
+    if request.method == "POST":
+        form = ContactUs(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('zakaz')
+    else:
+        form = ContactUs()
+    return render(request, 'zakaz.html', {"form":form, 'product':product})

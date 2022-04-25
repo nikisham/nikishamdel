@@ -8,7 +8,7 @@ from zakaz.models import Zakaz
 
 
 class ZakazAdminForm(forms.ModelForm):
-    desc = forms.CharField(widget=CKEditorWidget())
+    desc = forms.CharField(widget=CKEditorWidget(),label="Описание")
 
     class Meta:
         model = Zakaz
